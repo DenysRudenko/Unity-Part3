@@ -8,14 +8,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     public float gravityModifer;
     public bool isOnGround = true;
-
     public bool gameOver = false;
 
-    private bool canMove = true;
+    private Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
         Physics.gravity *= gravityModifer;
     }
 
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
                 {
                     playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                     isOnGround = false;
+                    playerAnim.SetTrigger("Jump_trig");
             }
         }
     }
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
         } else if (collision.gameObject.CompareTag("Obstacle")) {
             gameOver = true;
             Debug.Log("Game Over");
+            playerAnim.SetBool("Death_b", true);
+            playerAnim.SetInteger("DeathType_int", 1);
         }
     }
 }
