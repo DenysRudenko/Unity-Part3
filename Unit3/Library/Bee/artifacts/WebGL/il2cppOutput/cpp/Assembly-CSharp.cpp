@@ -843,7 +843,7 @@ IL_00da:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerControllerX__ctor_m3FFA731641AD6FA1CE627820042B7587E98D535A (PlayerControllerX_tF9D775557FE097FA08B4768B1295EA527AFF0D2B* __this, const RuntimeMethod* method) 
 {
 	{
-		__this->___gravityModifier = (1.5f);
+		__this->___gravityModifier = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
