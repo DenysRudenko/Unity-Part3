@@ -9,7 +9,7 @@ public class PlayerControllerX : MonoBehaviour
     public bool isLowEnough;
 
     public float floatForce;
-    private float gravityModifier = 1.5f;
+    private float gravityModifier = 1.0f;
     private Rigidbody playerRb;
 
     public ParticleSystem explosionParticle;
@@ -43,7 +43,7 @@ public class PlayerControllerX : MonoBehaviour
             playerRb.AddForce(Vector3.up * floatForce);
         }
 
-        if (transform.position.y > 13) {
+        if (transform.position.y > 12) {
             isLowEnough = false;
         } else {
             isLowEnough = true;
